@@ -3,6 +3,8 @@ body {
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  min-width: 400px;
+
 }
 
 input {
