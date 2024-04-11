@@ -6,15 +6,27 @@ let myLeads = [];
 
 function saveBtn(){
 myLeads.push(inputEl.value)
-inputEl.value = ""
+inputEl.value = '';
 renderLeads()
+
 }
 
-function renderLeads(){
-    let listItems = '';
+// function renderLead(){
+//     let listItem = '<li>' + inputEl.value + '</li>';
+//     ulEl.innerHTML += listItem;
+// }
+
+
+function renderLeads() {
+    let listItems = ""
     for (let i = 0; i < myLeads.length; i++) {
-      listItems += '<li>' + myLeads[i] + '</li>';
-    }
-    ulEl.innerHTML = listItems;
+listItems += `
+<li>
+<a target = '_blank' href = 'https://${myLeads[i]}'>
+https://${myLeads[i]}
+ </a>
+ </li>`;
+  }
+    ulEl.innerHTML = listItems
 }
 btn.addEventListener('click', saveBtn)
