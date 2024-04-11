@@ -9,7 +9,7 @@ let myLeads = [];
 function saveBtn(){
 myLeads.push(inputEl.value)
 inputEl.value = '';
-renderLeads()
+render(myLeads)
 storage()
 }
 
@@ -18,7 +18,7 @@ function storage(){
     localStorage.setItem('myLeads', JSON.stringify(myLeads));
     if(leadsFromLocalStorage){
            myLeads = leadsFromLocalStorage
-           renderLeads()
+           render(myLeads)
     }
 }
 
@@ -29,13 +29,13 @@ function storage(){
 // }
 
 
-function renderLeads() {
+function render(leads) {
     let listItems = ""
-    for (let i = 0; i < myLeads.length; i++) {
+    for (let i = 0; i < leads.length; i++) {
 listItems += `
 <li>
-<a target = '_blank' href = 'https://${myLeads[i]}'>
-https://${myLeads[i]}
+<a target = '_blank' href = 'https://${leads[i]}'>
+https://${leads[i]}
  </a>
  </li>`;
   }
@@ -45,7 +45,7 @@ https://${myLeads[i]}
 function storageClear(){
     localStorage.clear()
     myLeads = []
-    renderLeads()
+    render(myLeads)
 
 }
 
